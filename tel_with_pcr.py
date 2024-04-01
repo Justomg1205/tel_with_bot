@@ -149,10 +149,10 @@ def is_weekday_and_trading_hours():
     return weekday < 5 and trading_hours
 
 while 1:
-        
     @bot.message_handler(func=lambda msg: True)
     def send_welcome(message):
         bot.reply_to(message, "Hello, how are you?")    
+    print(is_weekday_and_trading_hours())
     if is_weekday_and_trading_hours():
         symbol = ["NIFTY","FINNIFTY","BANKNIFTY","MIDCPNIFTY"]
         with ThreadPoolExecutor(max_workers=2) as pool:
